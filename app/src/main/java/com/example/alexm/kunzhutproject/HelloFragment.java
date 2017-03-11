@@ -11,7 +11,6 @@ import android.widget.EditText;
 
 public class HelloFragment extends Fragment {
     private Button LetsStarButtom;
-    private EditText Greetings;
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
