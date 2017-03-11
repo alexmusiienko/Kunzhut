@@ -9,10 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-/**
- * Created by lubcik on 09.03.17.
- */
-
 public class HelloFragment extends Fragment {
     private Button LetsStarButtom;
     private EditText Greetings;
