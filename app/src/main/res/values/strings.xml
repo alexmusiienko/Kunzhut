@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">KunzhutProject</string>
+
+    <string name="selection_screen">Selection.screen</string>
+    <string-array name="visa">
+        <item>Туристична віза</item>
+        <item>Робоча віза</item>
+        <item>Ділова віза</item>
+        <item>Студентська віза</item>
+        <item>Шопінг-віза</item>
+    </string-array>
 </resources>
