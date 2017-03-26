@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         mainActivity.showFragment(new ChatFragment());
     }
 
-    public void goToPreviousFragment (Fragment fragment) {
+    public void goToPreviousFragment(Fragment fragment) {
 
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         FragmentManager fm = getActivity().supportFragmentManager();
