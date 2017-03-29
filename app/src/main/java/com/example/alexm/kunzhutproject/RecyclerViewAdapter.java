@@ -20,13 +20,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private LayoutInflater inflater;
     List<InformationForRecyclerView> data = Collections.emptyList();
 
-    public RecyclerViewAdapter (Context context, List<InformationForRecyclerView> data){
+
+    public RecyclerViewAdapter(Context context, List<InformationForRecyclerView> data) {
         inflater = LayoutInflater.from(context);
+        this.data = data;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.chat_fragment, parent, false);
+        View view = inflater.inflate(R.layout.recycler_item_row, parent, false);
         MyViewHolder holder = new MyViewHolder(view);
         return holder;
     }
@@ -34,11 +36,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         InformationForRecyclerView current = data.get(position);
-        //holder.textView.setText(current.title);
-
+        holder.textView.setText(current.title);
         holder.imageView.setImageResource(current.iconId);
-
-
     }
 
     @Override
@@ -46,19 +45,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return data.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder{
-
+    class MyViewHolder extends RecyclerView.ViewHolder {
         TextView textView;
         ImageView imageView;
-        LinearLayout linearLayout;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-       // textView = (TextView) itemView.findViewById(R.id.botHelloText);
+            textView = (TextView) itemView.findViewById(R.id.botHelloText);
             imageView = (ImageView) itemView.findViewById(R.id.botFace);
-            ///linearLayout = (LinearLayout) itemView.findViewById(R.id.botBackground);
-
         }
-
     }
 }

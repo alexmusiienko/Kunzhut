@@ -7,6 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,23 +22,43 @@ public class ChatFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup parent, Bundle savedInstanceState) {
+
         View layout = inflater.inflate(R.layout.chat_fragment, parent, false);
 
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(getActivity(), getData());
-       //(!) recyclerView.setAdapter(recyclerViewAdapter);
-        // (!) recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView = (RecyclerView) layout.findViewById(R.id.my_recycler_view);
+        final RecyclerViewAdapter recyclerViewAdapter;
+        recyclerViewAdapter = new RecyclerViewAdapter(getActivity(), getData());
+        recyclerView.setAdapter(recyclerViewAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        final EditText editText = (EditText) layout.findViewById(R.id.chatText);
+        Button button = (Button) layout.findViewById(R.id.sendButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text;
+                text = editText.getText().toString();
+                InformationForRecyclerView informationForRecyclerView = new InformationForRecyclerView();
+                informationForRecyclerView.title = text;
+                informationForRecyclerView.iconId = R.mipmap.bot_face;
+                recyclerViewAdapter.data.add(informationForRecyclerView);
+                recyclerViewAdapter.notifyDataSetChanged();
+
+            }
+        });
         return layout;
     }
 
-    public static List<InformationForRecyclerView> getData(){
+    public static List<InformationForRecyclerView> getData() {
         List<InformationForRecyclerView> data = new ArrayList<>();
-        int [] icons = {R.layout.recycler_item_row};
-       // for (int i = 0; i<1; i++) {
+        for (int i = 0; i < 5; i++) {
             InformationForRecyclerView current = new InformationForRecyclerView();
-            current.iconId=icons[0];
+            current.iconId = R.mipmap.bot_face;
+            current.title = "text" + String.valueOf(i);
             data.add(current);
-        //}
+        }
         return data;
 
     }
 }
+

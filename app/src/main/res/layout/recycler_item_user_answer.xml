@@ -6,19 +6,14 @@
 
     >
 
-    <ImageView
-        android:id="@+id/botFace"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:layout_gravity="bottom"
-        android:src="@mipmap/bot_face" />
+
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/botBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/shape"
         android:orientation="vertical">
@@ -32,6 +27,7 @@
             android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:text="SGSGKSDLGLDFKGDLFKGLDFGDfsdsdfsdfsdfsdfsdfsdfsdff" />
+
 
     </LinearLayout>
 

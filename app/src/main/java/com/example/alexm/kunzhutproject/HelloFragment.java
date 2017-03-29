@@ -24,7 +24,7 @@ public class HelloFragment extends Fragment {
             public void onClick(final View v) {
                 FragmentActivity activity = getActivity();
                 MainActivity mainActivity = (MainActivity) activity;
-                mainActivity.showFragment(new ChatFragmant());
+                mainActivity.showFragment(new ChatFragment());
             }
         });
         return view;
