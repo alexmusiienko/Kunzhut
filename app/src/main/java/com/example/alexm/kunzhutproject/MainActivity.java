@@ -6,33 +6,43 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+<<<<<<<Updated upstream
 import android.support.v4.app.FragmentActivity;
+
 import static android.app.PendingIntent.getActivity;
+
 import android.view.View;
+=======
+        >>>>>>>Stashed changes
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         View view = inflater.inflate(R.layout.hello_fragment, container, false);
     }
 
-    protected void onViewCreated(@Nullable Bundle savedInstanceState){
+    protected void onViewCreated(@Nullable Bundle savedInstanceState) {
         setContentView(R.layout.activity_main);
+        <<<<<<<Updated upstream
         replaceFragment(new HelloFragment());
 
         LetsStarButtom = (Button) view.findViewById(R.id.button);
-        LetsStarButtom.setOnClickListener(new View.OnClickListener()); {
+        LetsStarButtom.setOnClickListener(new View.OnClickListener());
+        {
 
             @Override
-            public void onClick(final View view) {
+            public void onClick ( final View view){
 
-                MainActivity mainActivity = (MainActivity) getActivity();
-                mainActivity.showFragment(new ChatFragmant());
-            }
+            MainActivity mainActivity = (MainActivity) getActivity();
+            mainActivity.showFragment(new ChatFragmant());
         }
+        }
+        =======
+
+        showFragment(new HelloFragment());
+        >>>>>>>Stashed changes
     }
 
     public void replaceFragment(Fragment fragment) {
@@ -44,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentTransaction.commit();
     }
+
+    <<<<<<<Updated upstream
 
     public void showFragment(Fragment fragment) {
 
@@ -61,3 +73,8 @@ public class MainActivity extends AppCompatActivity {
         fm.popBackStack();
     }
 }
+=======
+        }
+
+
+        >>>>>>>Stashed changes

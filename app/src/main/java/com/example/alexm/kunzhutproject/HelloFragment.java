@@ -22,8 +22,8 @@ public class HelloFragment extends Fragment {
 
             @Override
             public void onClick(final View v) {
-                FragmentActivity activity = getActivity();
-                MainActivity mainActivity = (MainActivity) activity;
+
+                MainActivity mainActivity = (MainActivity) getActivity();
                 mainActivity.showFragment(new ChatFragmant());
             }
         });
