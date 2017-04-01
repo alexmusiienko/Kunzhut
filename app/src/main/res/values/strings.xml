@@ -1,12 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">KunzhutProject</string>
 
-    <string name="selection_screen">Selection.screen</string>
-    <string-array name="visa">
-        <item>Туристична віза</item>
-        <item>Робоча віза</item>
-        <item>Ділова віза</item>
-        <item>Студентська віза</item>
-        <item>Шопінг-віза</item>
-    </string-array>
+    <string name="help_button">\?</string>
+    <string name="selection_button3">Ділова</string>
+    <string name="selection_text">Оберіть тип вашої візи</string>
+    <string name="selection_button2">Робоча</string>
+    <string name="selection_button1">Студентська</string>
+    <string name="selection_button4">Туристична</string>
+    <string name="selection_button5">Шопінг</string>
+    <string name="app_name">Kunzhut</string>
 </resources>
