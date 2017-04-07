@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         if (addToBackStack) {
             fragmentTransaction.addToBackStack(null);
         }
+        fragmentTransaction.commit();
     }
 
     public void goToPreviousFragment() {
