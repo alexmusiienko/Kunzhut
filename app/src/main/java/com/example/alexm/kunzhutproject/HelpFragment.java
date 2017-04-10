@@ -12,12 +12,31 @@ import android.widget.TextView;
  */
 
 public class HelpFragment extends Fragment {
+    private String title;
+    private String description;
+
+    public void setTitle(final String title) {
+        this.title = title;
+    }
+
+    public void setDescription(final String decription) {
+        this.description = decription;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.help_fragment, container, false);
+    }
 
-}
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        final TextView titleView = (TextView) view.findViewById(R.id.titleView);
+        titleView.setText(title);
+        final TextView descriptionView = (TextView) view.findViewById(R.id.textDecription);
+        descriptionView.setText(description);
+    }
 }

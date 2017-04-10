@@ -1,8 +1,6 @@
 package com.example.alexm.kunzhutproject;
 
 import android.os.Bundle;
-
-
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -16,13 +14,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        showFragment(new HelloFragment());
+
+        showFragment(new HelloFragment(), false);
     }
 
-    public void showFragment(Fragment fragment) {
+    public void showFragment(Fragment fragment, boolean addToBackStack) {
         FragmentManager supportFragmentManager = getSupportFragmentManager();
+
         FragmentTransaction fragmentTransaction = supportFragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container,fragment);
+        fragmentTransaction.replace(R.id.container, fragment);
+
+        if (addToBackStack) {
+            fragmentTransaction.addToBackStack(null);
+        }
         fragmentTransaction.commit();
+    }
+
+    public void goToPreviousFragment() {
+        getSupportFragmentManager().popBackStack();
     }
 }

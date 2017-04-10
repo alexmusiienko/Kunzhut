@@ -1,37 +1,96 @@
 package com.example.alexm.kunzhutproject;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.support.v4.app.FragmentActivity;
 
-public class SelectionFragment extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-    Spinner spinner;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.selection_screen);
+/**
+ * Created by polis on 24.03.2017.
+ */
 
-        spinner = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.visa, android.R.layout.simple_spinner_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
-    }
+public class SelectionFragment extends Fragment {
+    private Button button1, button2, button3, button4, button5, help_button;
+    HelpFragment hp_but = new HelpFragment();
 
     @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        TextView myText = (TextView) view;
-        Toast.makeText(this, "You Selected "+myText.getText(), Toast.LENGTH_SHORT).show();
-    }
+    public View onCreateView(LayoutInflater inflater,
+                             ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.selection_fragment, container, false);
+        button1 = (Button) view.findViewById(R.id.button1);
+        button2 = (Button) view.findViewById(R.id.button2);
+        button3 = (Button) view.findViewById(R.id.button3);
+        button4 = (Button) view.findViewById(R.id.button4);
+        button5 = (Button) view.findViewById(R.id.button5);
+        help_button = (Button) view.findViewById(R.id.help_button);
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
+        button1.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(final View v) {
+                FragmentActivity activity = getActivity();
+                MainActivity mainActivity = (MainActivity) activity;
+                ChatFragment chatFragment = new ChatFragment();
+                mainActivity.showFragment(chatFragment, true);
+            }
+        });
+
+        button2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(final View v) {
+                FragmentActivity activity = getActivity();
+                MainActivity mainActivity = (MainActivity) activity;
+                mainActivity.showFragment(new ChatFragment(), true);
+            }
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(final View v) {
+                FragmentActivity activity = getActivity();
+                MainActivity mainActivity = (MainActivity) activity;
+                mainActivity.showFragment(new ChatFragment(), true);
+            }
+        });
+
+        button4.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(final View v) {
+                FragmentActivity activity = getActivity();
+                MainActivity mainActivity = (MainActivity) activity;
+                mainActivity.showFragment(new ChatFragment(), true);
+            }
+        });
+
+        button5.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(final View v) {
+                FragmentActivity activity = getActivity();
+                MainActivity mainActivity = (MainActivity) activity;
+                mainActivity.showFragment(new ChatFragment(), true);
+            }
+        });
+
+        help_button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(final View v) {
+                hp_but.setTitle("Ola!");
+                hp_but.setDescription("Ola!");
+                FragmentActivity activity = getActivity();
+                MainActivity mainActivity = (MainActivity) activity;
+                mainActivity.showFragment(new HelpFragment(), true);
+            }
+        });
+        return view;
     }
 }
-

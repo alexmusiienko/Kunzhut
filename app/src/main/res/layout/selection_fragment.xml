@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#07689F"
+    android:orientation="vertical">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/master_app_bar"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/master_toolbar"
+            style="@style/MasterToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/master_app_bar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/selection_text"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="fill_parent"
+        android:layout_marginStart="100dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textView3"
+        android:layout_marginTop="40dp"
+        android:background="#FF7E67"
+        android:text="@string/selection_button1"
+        android:textColor="@android:color/white"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button1"
+        android:layout_alignEnd="@+id/button1"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="12dp"
+        android:background="#FF7E67"
+        android:text="@string/selection_button2"
+        android:textColor="@android:color/white"/>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button2"
+        android:layout_alignEnd="@+id/button2"
+        android:layout_below="@+id/button2"
+        android:layout_marginTop="12dp"
+        android:background="#FF7E67"
+        android:text="@string/selection_button3"
+        android:textColor="@android:color/white"/>
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button3"
+        android:layout_alignEnd="@+id/button3"
+        android:layout_below="@+id/button3"
+        android:layout_marginTop="12dp"
+        android:background="#FF7E67"
+        android:text="@string/selection_button4"
+        android:textColor="@android:color/white"/>
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/button4"
+        android:layout_alignEnd="@+id/button4"
+        android:layout_below="@+id/button4"
+        android:layout_marginTop="12dp"
+        android:background="#FF7E67"
+        android:text="@string/selection_button5"
+        android:textColor="@android:color/white"/>
+
+    <Button
+        android:id="@+id/help_button"
+        android:background="@drawable/round_help_button"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="25dp"
+        android:text="@string/help_button"
+        android:textSize="25sp"
+        android:textColor="#FFFFFF"/>
+
+
+</RelativeLayout>
