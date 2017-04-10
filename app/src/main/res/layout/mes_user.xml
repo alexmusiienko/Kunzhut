@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <ImageView
@@ -14,7 +14,7 @@
         android:src="@drawable/arrow_bg1" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/user_text_view"
         android:layout_alignParentRight="true"
         android:layout_below="@id/imageView1"
         android:layout_width="wrap_content"

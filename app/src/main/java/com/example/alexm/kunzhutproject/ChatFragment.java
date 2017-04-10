@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,13 +36,16 @@ public class ChatFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String text;
-                text = editText.getText().toString();
-                InformationForRecyclerView informationForRecyclerView = new InformationForRecyclerView();
-                informationForRecyclerView.title = text;
-                informationForRecyclerView.iconId = R.mipmap.bot_face;
-                recyclerViewAdapter.data.add(informationForRecyclerView);
-                recyclerViewAdapter.notifyDataSetChanged();
-
+                text = editText.getText().toString().trim();
+                if (text.isEmpty()) {
+                    return;
+                }
+                InformationForRecyclerView informationForRecyclerView = new InformationForRecyclerView(MessageType.USER, text);
+                recyclerViewAdapter.append(informationForRecyclerView);
+                User.CURRENT.name = text;
+                Step.nextStep();
+                recyclerViewAdapter.append(new InformationForRecyclerView(MessageType.BOT, Step.getQuestion()));
+                editText.setText("");
             }
         });
         return layout;
@@ -51,12 +53,7 @@ public class ChatFragment extends Fragment {
 
     public static List<InformationForRecyclerView> getData() {
         List<InformationForRecyclerView> data = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            InformationForRecyclerView current = new InformationForRecyclerView();
-            current.iconId = R.mipmap.bot_face;
-            current.title = "text" + String.valueOf(i);
-            data.add(current);
-        }
+        data.add(new InformationForRecyclerView(MessageType.BOT, Step.getQuestion()));
         return data;
 
     }
