@@ -1,6 +1,6 @@
 package com.example.alexm.kunzhutproject;
 
-public class BooleanQuestion {
+public class BooleanQuestion extends Question{
 
     private boolean answer;
 
