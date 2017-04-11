@@ -2,7 +2,7 @@ package com.example.alexm.kunzhutproject;
 
 public class Question {
 
-    private final String questionTitle;
+    public static String questionTitle;
 
     public Question(final String questionTitle) {
         this.questionTitle = questionTitle;
