@@ -2,7 +2,7 @@ package com.example.alexm.kunzhutproject;
 
 import java.util.List;
 
-public class MultipleOptionQuestion {
+public class MultipleOptionQuestion extends Question {
     private List<String> answerOptions;
 
     private int answerIndex;
