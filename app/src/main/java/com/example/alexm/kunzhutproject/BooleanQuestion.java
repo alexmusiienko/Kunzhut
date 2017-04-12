@@ -8,7 +8,7 @@ public class BooleanQuestion extends Question{
         this.answer = answer;
     }
 
-    public BooleanQuestion(String s) {
+    public BooleanQuestion(String questionTitle) {
         super(questionTitle);
     }
 }
