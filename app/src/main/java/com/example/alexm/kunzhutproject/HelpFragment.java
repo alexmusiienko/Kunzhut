@@ -7,10 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-/**
- * Created by lubcik on 15.03.17.
- */
-
 public class HelpFragment extends Fragment {
     private String title;
     private String description;
@@ -19,9 +15,7 @@ public class HelpFragment extends Fragment {
         this.title = title;
     }
 
-    public void setDescription(final String decription) {
-        this.description = decription;
-    }
+    public void setDescription(final String description) {this.description = description;}
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -36,7 +30,7 @@ public class HelpFragment extends Fragment {
 
         final TextView titleView = (TextView) view.findViewById(R.id.titleView);
         titleView.setText(title);
-        final TextView descriptionView = (TextView) view.findViewById(R.id.textDecription);
+        final TextView descriptionView = (TextView) view.findViewById(R.id.textDescription);
         descriptionView.setText(description);
     }
 }

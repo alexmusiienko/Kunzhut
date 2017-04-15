@@ -9,19 +9,26 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.support.v4.app.FragmentActivity;
 
-
-/**
- * Created by polis on 24.03.2017.
- */
-
 public class SelectionFragment extends Fragment {
-    private Button button1, button2, button3, button4, button5, help_button;
+
+    private void click_listening(){
+        FragmentActivity activity = getActivity();
+        MainActivity mainActivity = (MainActivity) activity;
+        mainActivity.showFragment(new ChatFragmant(), true);
+    }
+
     HelpFragment hp_but = new HelpFragment();
 
     @Override
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container,
                              Bundle savedInstanceState) {
+        Button button1;
+        Button button2;
+        Button button3;
+        Button button4;
+        Button button5;
+        Button help_button;
         View view = inflater.inflate(R.layout.selection_fragment, container, false);
         button1 = (Button) view.findViewById(R.id.button1);
         button2 = (Button) view.findViewById(R.id.button2);
@@ -34,10 +41,7 @@ public class SelectionFragment extends Fragment {
 
             @Override
             public void onClick(final View v) {
-                FragmentActivity activity = getActivity();
-                MainActivity mainActivity = (MainActivity) activity;
-                ChatFragmant chatFragmant = new ChatFragmant();
-                mainActivity.showFragment(chatFragmant, true);
+                click_listening();
             }
         });
 
@@ -45,9 +49,7 @@ public class SelectionFragment extends Fragment {
 
             @Override
             public void onClick(final View v) {
-                FragmentActivity activity = getActivity();
-                MainActivity mainActivity = (MainActivity) activity;
-                mainActivity.showFragment(new ChatFragmant(), true);
+                click_listening();
             }
         });
 
@@ -55,9 +57,7 @@ public class SelectionFragment extends Fragment {
 
             @Override
             public void onClick(final View v) {
-                FragmentActivity activity = getActivity();
-                MainActivity mainActivity = (MainActivity) activity;
-                mainActivity.showFragment(new ChatFragmant(), true);
+                click_listening();
             }
         });
 
@@ -65,9 +65,7 @@ public class SelectionFragment extends Fragment {
 
             @Override
             public void onClick(final View v) {
-                FragmentActivity activity = getActivity();
-                MainActivity mainActivity = (MainActivity) activity;
-                mainActivity.showFragment(new ChatFragmant(), true);
+                click_listening();
             }
         });
 
@@ -75,9 +73,7 @@ public class SelectionFragment extends Fragment {
 
             @Override
             public void onClick(final View v) {
-                FragmentActivity activity = getActivity();
-                MainActivity mainActivity = (MainActivity) activity;
-                mainActivity.showFragment(new ChatFragmant(), true);
+                click_listening();
             }
         });
 
@@ -89,7 +85,7 @@ public class SelectionFragment extends Fragment {
                 hp_but.setDescription("Ola!");
                 FragmentActivity activity = getActivity();
                 MainActivity mainActivity = (MainActivity) activity;
-                mainActivity.showFragment(new HelpFragment(), true);
+                mainActivity.showFragment(hp_but, true);
             }
         });
         return view;

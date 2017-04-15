@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#07689F"
-    android:orientation="vertical">
+    android:background="#07689F">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/master_app_bar"
