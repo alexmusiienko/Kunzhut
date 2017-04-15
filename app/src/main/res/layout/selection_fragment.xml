@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/textView3"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="55dp"
         android:background="#FF7E67"
         android:text="@string/selection_button1"
         android:textColor="@android:color/white"/>
