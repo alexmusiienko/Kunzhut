@@ -6,20 +6,7 @@
     android:layout_height="match_parent"
     android:background="#07689F">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/master_app_bar"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_alignParentTop="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/master_toolbar"
-            style="@style/MasterToolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    </android.support.design.widget.AppBarLayout>
 
     <TextView
         android:id="@+id/textView3"
