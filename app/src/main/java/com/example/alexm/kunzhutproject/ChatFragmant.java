@@ -30,7 +30,7 @@ public class ChatFragmant extends Fragment {
         recyclerView.setAdapter((RecyclerView.Adapter) adapter);
     }
 
-    class ChatAdapter extends RecyclerView.Adapter {
+    private static class ChatAdapter extends RecyclerView.Adapter {
 
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
