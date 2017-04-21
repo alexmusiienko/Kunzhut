@@ -25,7 +25,7 @@ public class ChatFragmant extends Fragment {
     public void onViewCreated(final View view, @Nullable final Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
 
-        recyclerView = (RecyclerView) getView().findViewById(R.id.example);
+        recyclerView = (RecyclerView) getView().findViewById(R.id.recyclerView);
 
         recyclerView.setAdapter((RecyclerView.Adapter) adapter);
     }

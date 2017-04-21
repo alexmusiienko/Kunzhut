@@ -19,7 +19,7 @@
     </android.support.design.widget.AppBarLayout>
     
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/listView1"
+        android:id="@+id/recyclerView"
         android:layout_below="@+id/master_app_bar"
         android:layout_above="@+id/form"
         android:layout_width="match_parent"
