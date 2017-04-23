@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.support.v4.app.FragmentActivity;
 
+import java.util.List;
+
 public class SelectionFragment extends Fragment {
 
     private void click_listening(){
@@ -41,15 +43,37 @@ public class SelectionFragment extends Fragment {
 
             @Override
             public void onClick(final View v) {
-                click_listening();
-            }
+
+                    FragmentActivity activity = getActivity();
+                    MainActivity mainActivity = (MainActivity) activity;
+                    ChatFragmant chatFragmant = new ChatFragmant();
+
+                    /*
+                    //SETER DOESN'T EXIST
+                    final List<Question> questions = QuestionFactory.qetStudentVisa();
+                    chatFragmant.getStudentVisa(studentVisa);
+                    */
+
+                    mainActivity.showFragment(chatFragmant, true);
+                }
         });
 
         button2.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(final View v) {
-                click_listening();
+
+                FragmentActivity activity = getActivity();
+                MainActivity mainActivity = (MainActivity) activity;
+                ChatFragmant chatFragmant = new ChatFragmant();
+
+                    /*
+                    //SETER DOESN'T EXIST
+                    final List<Question> questions = QuestionFactory.qetWorkingVisa();
+                    chatFragmant.setWorkingVisa(workingVisa);
+                    */
+
+                mainActivity.showFragment(chatFragmant, true);
             }
         });
 
@@ -57,7 +81,18 @@ public class SelectionFragment extends Fragment {
 
             @Override
             public void onClick(final View v) {
-                click_listening();
+
+                FragmentActivity activity = getActivity();
+                MainActivity mainActivity = (MainActivity) activity;
+                ChatFragmant chatFragmant = new ChatFragmant();
+
+                    /*
+                    //SETER DOESN'T EXIST
+                    final List<Question> questions = QuestionFactory.qetBusinessVisa();
+                    chatFragmant.setBusinessVisa(businessVisa);
+                    */
+
+                mainActivity.showFragment(chatFragmant, true);
             }
         });
 
@@ -65,7 +100,18 @@ public class SelectionFragment extends Fragment {
 
             @Override
             public void onClick(final View v) {
-                click_listening();
+
+                FragmentActivity activity = getActivity();
+                MainActivity mainActivity = (MainActivity) activity;
+                ChatFragmant chatFragmant = new ChatFragmant();
+
+                    /*
+                    //SETER DOESN'T EXIST
+                    final List<Question> questions = QuestionFactory.qetExcursionVisa();
+                    chatFragmant.setExcursionVisa(excursionVisa);
+                    */
+
+                mainActivity.showFragment(chatFragmant, true);
             }
         });
 
@@ -73,10 +119,20 @@ public class SelectionFragment extends Fragment {
 
             @Override
             public void onClick(final View v) {
-                click_listening();
+
+                FragmentActivity activity = getActivity();
+                MainActivity mainActivity = (MainActivity) activity;
+                ChatFragmant chatFragmant = new ChatFragmant();
+
+                    /*
+                    //SETER DOESN'T EXIST
+                    final List<Question> questions = QuestionFactory.qetShoppingVisa();
+                    chatFragmant.setShoppingVisa(shoppingVisa);
+                    */
+
+                mainActivity.showFragment(chatFragmant, true);
             }
         });
-
         help_button.setOnClickListener(new View.OnClickListener() {
 
             @Override
