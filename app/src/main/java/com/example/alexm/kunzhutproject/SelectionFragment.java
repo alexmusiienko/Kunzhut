@@ -49,7 +49,7 @@ public class SelectionFragment extends Fragment {
                     ChatFragmant chatFragmant = new ChatFragmant();
 
                     /*
-                    //SETER DOESN'T EXIST
+                    //SETTER DOESN'T EXIST
                     final List<Question> questions = QuestionFactory.qetStudentVisa();
                     chatFragmant.getStudentVisa(studentVisa);
                     */
@@ -68,7 +68,7 @@ public class SelectionFragment extends Fragment {
                 ChatFragmant chatFragmant = new ChatFragmant();
 
                     /*
-                    //SETER DOESN'T EXIST
+                    //SETTER DOESN'T EXIST
                     final List<Question> questions = QuestionFactory.qetWorkingVisa();
                     chatFragmant.setWorkingVisa(workingVisa);
                     */
@@ -87,7 +87,7 @@ public class SelectionFragment extends Fragment {
                 ChatFragmant chatFragmant = new ChatFragmant();
 
                     /*
-                    //SETER DOESN'T EXIST
+                    //SETTER DOESN'T EXIST
                     final List<Question> questions = QuestionFactory.qetBusinessVisa();
                     chatFragmant.setBusinessVisa(businessVisa);
                     */
@@ -106,7 +106,7 @@ public class SelectionFragment extends Fragment {
                 ChatFragmant chatFragmant = new ChatFragmant();
 
                     /*
-                    //SETER DOESN'T EXIST
+                    //SETTER DOESN'T EXIST
                     final List<Question> questions = QuestionFactory.qetExcursionVisa();
                     chatFragmant.setExcursionVisa(excursionVisa);
                     */
@@ -125,7 +125,7 @@ public class SelectionFragment extends Fragment {
                 ChatFragmant chatFragmant = new ChatFragmant();
 
                     /*
-                    //SETER DOESN'T EXIST
+                    //SETTER DOESN'T EXIST
                     final List<Question> questions = QuestionFactory.qetShoppingVisa();
                     chatFragmant.setShoppingVisa(shoppingVisa);
                     */
