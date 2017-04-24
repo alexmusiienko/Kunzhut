@@ -9,8 +9,10 @@ public class QuestionFactory {
         final List<Question> questions = new ArrayList<>();
 
         questions.add(new Question("Вам є повних 18 р.?"));
-        questions.add(new Question("Ви вже обрали торговий центр?"));
+        questions.add(new Question("Ви вже подорожували до Америки?"));
+        questions.add(new Question("У вас є медичне страхування?"));
         questions.add(new Question("Ви маєте квитки туди і назад?"));
+        questions.add(new Question("Ви маєте міжнародний студентський квиток?"));
 
         return questions;
     }
@@ -19,8 +21,11 @@ public class QuestionFactory {
         final List<Question> questions = new ArrayList<>();
 
         questions.add(new Question("Вам є повних 18 р.?"));
-        questions.add(new Question("Ваша фірма забронювала місце у готелі для Вас?"));
+        questions.add(new Question("Ви вже подорожували до Америки?"));
+        questions.add(new Question("У вас є медичне страхування?"));
         questions.add(new Question("Ви маєте квитки туди і назад?"));
+        questions.add(new Question("Ви подбали про місце ночівлі?"));
+        questions.add(new Question("У вас є діти?"));
 
         return questions;
     }
@@ -29,8 +34,11 @@ public class QuestionFactory {
         final List<Question> questions = new ArrayList<>();
 
         questions.add(new Question("Вам є повних 18 р.?"));
+        questions.add(new Question("Ви вже подорожували до Америки?"));
+        questions.add(new Question("У вас є медичне страхування?"));
+        questions.add(new Question("Ви маєте квитки туди і назад?"));
+        questions.add(new Question("Ви подбали про місце ночівлі?"));
         questions.add(new Question("У вас є діти?"));
-        questions.add(new Question(""));
 
         return questions;
     }
@@ -39,8 +47,11 @@ public class QuestionFactory {
         final List<Question> questions = new ArrayList<>();
 
         questions.add(new Question("Вам є повних 18 р.?"));
-        questions.add(new Question("Ви забронювали собі місце у готелі?"));
+        questions.add(new Question("Ви вже подорожували до Америки?"));
+        questions.add(new Question("У вас є медичне страхування?"));
         questions.add(new Question("Ви маєте квитки туди і назад?"));
+        questions.add(new Question("Ви подбали про місце ночівлі?"));
+        questions.add(new Question("У вас є діти?"));
 
         return questions;
     }
@@ -49,8 +60,12 @@ public class QuestionFactory {
         final List<Question> questions = new ArrayList<>();
 
         questions.add(new Question("Вам є повних 18 р.?"));
-        questions.add(new Question("Ви вже обрали торговий центр?"));
+        questions.add(new Question("Ви вже подорожували до Америки?"));
+        questions.add(new Question("У вас є медичне страхування?"));
         questions.add(new Question("Ви маєте квитки туди і назад?"));
+        questions.add(new Question("Ви подбали про місце ночівлі?"));
+        questions.add(new Question("У вас є діти?"));
+        questions.add(new Question("Ви вже обрали торговий центр?"));
 
         return questions;
     }
