@@ -12,10 +12,17 @@
         android:src="@drawable/arrow_bg2" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:text="dlad :SDK :ALdsk klaksd"
-        android:gravity="center"
-        android:layout_height="wrap_content" />
+        android:text="question"
+        android:layout_below="@id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner1"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="-27dp"
+        android:padding="16dp"
+        android:textColor="#000"
+         />
 
      <RelativeLayout
          android:visibility="gone"
