@@ -32,23 +32,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" >
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:hint="Please type your answer"
-            android:ems="10"
-            android:id="@+id/chatText"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true"
-            android:layout_toLeftOf="@+id/buttonSend" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Send"
-            android:id="@+id/buttonSend"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 </RelativeLayout>
