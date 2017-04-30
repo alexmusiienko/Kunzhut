@@ -47,3 +47,39 @@ public class ChatFragment extends Fragment {
 
         adapter.setQuestions(questions);
     }
+    
+        private static class QuestionViewHolder extends ViewHolder {
+
+        private TextView title;
+
+        public QuestionViewHolder(final View itemView) {
+            super(itemView);
+
+            title = (TextView) itemView.findViewById(R.id.question_title);
+        }
+
+        public void setTitle(final String titleText) {
+            title.setText(titleText);
+        }
+    }
+
+    private static class BooleanQuestionViewHolder extends QuestionViewHolder {
+
+        private Button positiveButton;
+        private Button negativeButton;
+
+        public BooleanQuestionViewHolder(final View itemView) {
+            super(itemView);
+
+            positiveButton = (Button) itemView.findViewById(R.id.chat_select_button1);
+            negativeButton = (Button) itemView.findViewById(R.id.chat_select_button2);
+        }
+
+        public void setPositiveListeners(final OnClickListener onClickListener) {
+            positiveButton.setOnClickListener(onClickListener);
+        }
+
+        public void setNegativeListeners(final OnClickListener onClickListener) {
+            negativeButton.setOnClickListener(onClickListener);
+        }
+    }
