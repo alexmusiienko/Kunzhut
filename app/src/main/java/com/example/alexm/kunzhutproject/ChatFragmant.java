@@ -16,7 +16,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChatFragment extends Fragment {
+public class ChatFragmant extends Fragment {
 
     private RecyclerView recyclerView;
     private ChatAdapter adapter;
@@ -83,6 +83,7 @@ public class ChatFragment extends Fragment {
             negativeButton.setOnClickListener(onClickListener);
         }
     }
+
     private static class MultipleOptionsQuestionViewHolder extends QuestionViewHolder {
 
         private Button firstOptionButton;
@@ -109,6 +110,7 @@ public class ChatFragment extends Fragment {
             thirdOptionButton.setOnClickListener(onClickListener);
         }
     }
+
     private static class ChatAdapter extends RecyclerView.Adapter<QuestionViewHolder> {
 
         private static final int BOOLEAN_QUESTION_VIEW = 100;
@@ -173,3 +175,82 @@ public class ChatFragment extends Fragment {
             }
         }
 
+        private void setupBooleanHolder(final BooleanQuestionViewHolder holder, final Question question) {
+            final BooleanQuestion booleanQuestion = (BooleanQuestion) question;
+
+            holder.setTitle(question.getQuestionTitle());
+            holder.setPositiveListeners(new OnClickListener() {
+                @Override
+                public void onClick(final View view) {
+                    booleanQuestion.setAnswer(true);
+
+                    showNextQuestion();
+                }
+            });
+
+            holder.setNegativeListeners(new OnClickListener() {
+                @Override
+                public void onClick(final View view) {
+                    booleanQuestion.setAnswer(false);
+
+                    showNextQuestion();
+                }
+            });
+        }
+
+        private void setupMultipleOptionsHolder(final MultipleOptionsQuestionViewHolder holder,
+                                                final Question question) {
+            final MultipleOptionQuestion multipleOptionQuestion = (MultipleOptionQuestion) question;
+
+            holder.setTitle(question.getQuestionTitle());
+            holder.firstOptionButton.setText(multipleOptionQuestion.getAnswerOptions().get(0));
+            holder.secondOptionButton.setText(multipleOptionQuestion.getAnswerOptions().get(1));
+            holder.thirdOptionButton.setText(multipleOptionQuestion.getAnswerOptions().get(2));
+
+            holder.setFirstOptionButtonListener(new OnClickListener() {
+                @Override
+                public void onClick(final View view) {
+                    multipleOptionQuestion.setAnswerIndex(0);
+                    showNextQuestion();
+                }
+            });
+
+            holder.setSecondOptionButtonListener(new OnClickListener() {
+                @Override
+                public void onClick(final View view) {
+                    multipleOptionQuestion.setAnswerIndex(1);
+                    showNextQuestion();
+                }
+            });
+
+            holder.setThirdOptionButtonListener(new OnClickListener() {
+                @Override
+                public void onClick(final View view) {
+                    multipleOptionQuestion.setAnswerIndex(2);
+                    showNextQuestion();
+                }
+            });
+        }
+
+        private void showNextQuestion() {
+            if (questions.size() >= 1) {
+                displayedQuestions.add(questions.remove(0));
+                notifyDataSetChanged();
+
+                recyclerView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        recyclerView.smoothScrollToPosition(displayedQuestions.size() - 1);
+                    }
+                });
+            } else {
+                // TODO: 4/30/17 navigate to report fragment with answers list
+            }
+        }
+
+        @Override
+        public int getItemCount() {
+            return displayedQuestions.size();
+        }
+    }
+}
