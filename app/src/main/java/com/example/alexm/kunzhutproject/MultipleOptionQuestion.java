@@ -7,8 +7,10 @@ public class MultipleOptionQuestion extends Question  {
 
     private int answerIndex;
 
-    public MultipleOptionQuestion (String questionTitle){
+    public MultipleOptionQuestion(String questionTitle, List<String> answerOptions) {
         super(questionTitle);
+
+        this.answerOptions = answerOptions;
     }
     public List<String> getAnswerOptions(){
         return answerOptions;
