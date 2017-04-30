@@ -83,3 +83,30 @@ public class ChatFragment extends Fragment {
             negativeButton.setOnClickListener(onClickListener);
         }
     }
+    private static class MultipleOptionsQuestionViewHolder extends QuestionViewHolder {
+
+        private Button firstOptionButton;
+        private Button secondOptionButton;
+        private Button thirdOptionButton;
+
+        public MultipleOptionsQuestionViewHolder(final View itemView) {
+            super(itemView);
+
+            firstOptionButton = (Button) itemView.findViewById(R.id.chat_select_button1);
+            secondOptionButton = (Button) itemView.findViewById(R.id.chat_select_button2);
+            thirdOptionButton = (Button) itemView.findViewById(R.id.chat_select_button3);
+        }
+
+        public void setFirstOptionButtonListener(final OnClickListener onClickListener) {
+            firstOptionButton.setOnClickListener(onClickListener);
+        }
+
+        public void setSecondOptionButtonListener(final OnClickListener onClickListener) {
+            secondOptionButton.setOnClickListener(onClickListener);
+        }
+
+        public void setThirdOptionButtonListener(final OnClickListener onClickListener) {
+            thirdOptionButton.setOnClickListener(onClickListener);
+        }
+    }
+
