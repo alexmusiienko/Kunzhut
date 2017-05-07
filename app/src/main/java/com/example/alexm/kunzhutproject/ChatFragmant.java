@@ -3,6 +3,7 @@ package com.example.alexm.kunzhutproject;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.ViewHolder;
@@ -111,7 +112,7 @@ public class ChatFragmant extends Fragment {
         }
     }
 
-    private static class ChatAdapter extends RecyclerView.Adapter<QuestionViewHolder> {
+    private class ChatAdapter extends RecyclerView.Adapter<QuestionViewHolder> {
 
         private static final int BOOLEAN_QUESTION_VIEW = 100;
         private static final int MULTIPLE_OPTIONS_QUESTION_VIEW = 200;
@@ -244,7 +245,10 @@ public class ChatFragmant extends Fragment {
                     }
                 });
             } else {
-                // TODO: 4/30/17 navigate to report fragment with answers list
+                FragmentActivity activity = getActivity();
+                MainActivity mainActivity = (MainActivity) activity;
+                mainActivity.showFragment(new ReportFragment(), true);
+
             }
         }
 
