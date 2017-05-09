@@ -1,5 +1,6 @@
 package com.example.alexm.kunzhutproject;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -184,7 +185,9 @@ public class ChatFragmant extends Fragment {
                 @Override
                 public void onClick(final View view) {
                     booleanQuestion.setAnswer(true);
-
+                    view.setEnabled(false);
+                    view.setBackgroundResource(R.color.colorDarkenButton);
+                    holder.negativeButton.setEnabled(false);
                     showNextQuestion();
                 }
             });
@@ -193,7 +196,9 @@ public class ChatFragmant extends Fragment {
                 @Override
                 public void onClick(final View view) {
                     booleanQuestion.setAnswer(false);
-
+                    view.setEnabled(false);
+                    view.setBackgroundResource(R.color.colorDarkenButton);
+                    holder.positiveButton.setEnabled(false);
                     showNextQuestion();
                 }
             });
