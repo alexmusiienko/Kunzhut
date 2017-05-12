@@ -8,18 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
-
-/**
- * Created by lubcik on 03.05.17.
- */
 
 public class  ReportFragment extends Fragment {
     private List<Question> displayedQuestions;
     private RecyclerView recyclerView2;
     private List<Question> questions;
 
-     public void setQuestions(final List<Question> questions) {
+    public void setQuestions(final List<Question> questions) {
         this.questions = questions;
     }
 
@@ -32,8 +29,8 @@ public class  ReportFragment extends Fragment {
                              ViewGroup container,
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.report_fragment, container, false);
-
     }
+
    /*@Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -41,5 +38,49 @@ public class  ReportFragment extends Fragment {
         recyclerView2.setQuestions(questions);
         recyclerView2.setListOfAnswer(displayedQuestions);
     }*/
+
+    private static class ReportAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+        private RecyclerView recyclerView;
+        private List<Question> questions;
+        private List<Question> displayedQuestions;
+
+        private ReportAdapter(final RecyclerView recyclerView) {
+            this.recyclerView = recyclerView;
+        }
+
+        public void setQuestions(final List<Question> questions) {
+            this.questions = questions;
+            this.displayedQuestions = new ArrayList<>();
+
+            displayedQuestions.add(questions.remove(0));
+
+            notifyDataSetChanged();
+        }
+
+        @Override
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            return null;
+        }
+
+        @Override
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+
+           /*
+            recyclerViewReport = (RecyclerView) getView().findViewById(R.id.recyclerView);
+            recyclerViewReport.setLayoutManager(new LinearLayoutManager(getContext()));
+            recyclerViewReport.setAdapter((RecyclerView.Adapter) ReportAdapter)
+            ReportAdapter.setQuestions(questions);
+
+            final Question question = displayedQuestions.get(position);
+           */
+        }
+
+        @Override
+        public int getItemCount() {
+            return displayedQuestions.size();
+        }
+    }
 }
+
 
