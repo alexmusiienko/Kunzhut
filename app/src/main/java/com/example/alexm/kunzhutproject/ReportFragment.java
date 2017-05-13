@@ -43,7 +43,6 @@ public class  ReportFragment extends Fragment {
 
         private RecyclerView recyclerView;
         private List<Question> questions;
-        private List<Question> displayedQuestions;
 
         private ReportAdapter(final RecyclerView recyclerView) {
             this.recyclerView = recyclerView;
@@ -51,9 +50,9 @@ public class  ReportFragment extends Fragment {
 
         public void setQuestions(final List<Question> questions) {
             this.questions = questions;
-            this.displayedQuestions = new ArrayList<>();
+            this.questions = new ArrayList<>();
 
-            displayedQuestions.add(questions.remove(0));
+            questions.add(questions.remove(0));
 
             notifyDataSetChanged();
         }
@@ -78,7 +77,7 @@ public class  ReportFragment extends Fragment {
 
         @Override
         public int getItemCount() {
-            return displayedQuestions.size();
+            return questions.size();
         }
     }
 }

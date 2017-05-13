@@ -50,7 +50,7 @@ public class ChatFragmant extends Fragment {
         adapter.setQuestions(questions);
     }
     
-        private static class QuestionViewHolder extends ViewHolder {
+        static class QuestionViewHolder extends ViewHolder {
 
         private TextView title;
 
@@ -186,7 +186,7 @@ public class ChatFragmant extends Fragment {
                 public void onClick(final View view) {
                     booleanQuestion.setAnswer(true);
                     view.setEnabled(false);
-                    view.setBackgroundResource(R.color.colorDarkenButton);
+                    view.setBackgroundResource(R.color.color_darken_button);
                     holder.negativeButton.setEnabled(false);
                     showNextQuestion();
                 }
