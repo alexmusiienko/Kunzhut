@@ -90,7 +90,7 @@ public class SelectionFragment extends Fragment {
         FragmentActivity activity = getActivity();
         MainActivity mainActivity = (MainActivity) activity;
 
-        final ChatFragmant fragment = new ChatFragmant();
+        final ChatFragment fragment = new ChatFragment();
         fragment.setQuestions(questions);
 
         mainActivity.showFragment(fragment, true);

@@ -1,6 +1,5 @@
 package com.example.alexm.kunzhutproject;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,7 +17,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChatFragmant extends Fragment {
+public class ChatFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private ChatAdapter adapter;
@@ -197,7 +196,7 @@ public class ChatFragmant extends Fragment {
                 public void onClick(final View view) {
                     booleanQuestion.setAnswer(false);
                     view.setEnabled(false);
-                    view.setBackgroundResource(R.color.colorDarkenButton);
+                    view.setBackgroundResource(R.color.color_darken_button);
                     holder.positiveButton.setEnabled(false);
                     showNextQuestion();
                 }
