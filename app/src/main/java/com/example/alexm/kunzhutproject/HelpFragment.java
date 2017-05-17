@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class HelpFragment extends Fragment {
+public class HelpFragment extends GeneralFragment {
     private String title;
     private String description;
 
@@ -27,6 +27,7 @@ public class HelpFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        showBackButton();
 
         final TextView titleView = (TextView) view.findViewById(R.id.titleView);
         titleView.setText(title);
