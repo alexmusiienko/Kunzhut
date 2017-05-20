@@ -8,6 +8,12 @@ public class BooleanQuestion extends Question{
         this.answer = answer;
     }
 
+    public boolean getAnswer() {
+        return answer;
+    }
+
+//    if question answered (true)
+
     public BooleanQuestion(String questionTitle) {
         super(questionTitle);
     }
