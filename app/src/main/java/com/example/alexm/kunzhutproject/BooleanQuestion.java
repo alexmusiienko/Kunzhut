@@ -7,6 +7,10 @@ public class BooleanQuestion extends Question{
     public void setAnswer(boolean answer){
         this.answer = answer;
     }
+    
+    public boolean getAnswer() {
+        return answer;
+    }
 
     public BooleanQuestion(String questionTitle) {
         super(questionTitle);
