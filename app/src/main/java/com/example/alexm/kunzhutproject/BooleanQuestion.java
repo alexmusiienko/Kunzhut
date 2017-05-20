@@ -12,10 +12,6 @@ public class BooleanQuestion extends Question{
         return answer;
     }
 
-    public boolean getAnswer() {
-        return answer;
-    }
-
     public BooleanQuestion(String questionTitle) {
         super(questionTitle);
     }
