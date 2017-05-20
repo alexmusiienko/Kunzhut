@@ -12,8 +12,6 @@ public class BooleanQuestion extends Question{
         return answer;
     }
 
-//    if question answered (true)
-
     public BooleanQuestion(String questionTitle) {
         super(questionTitle);
     }
