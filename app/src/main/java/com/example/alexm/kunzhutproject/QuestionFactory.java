@@ -21,11 +21,11 @@ public class QuestionFactory {
         final List<Question> questions = new ArrayList<>();
 
         questions.add(new BooleanQuestion("Вам є повних 18 р.?"));
+        questions.add(new BooleanQuestion("У вас є діти?"));
         questions.add(new BooleanQuestion("Ви вже подорожували до Америки?"));
         questions.add(new BooleanQuestion("У вас є медичне страхування?"));
         questions.add(new BooleanQuestion("Ви маєте квитки туди і назад?"));
         questions.add(new BooleanQuestion("Ви подбали про місце ночівлі?"));
-        questions.add(new BooleanQuestion("У вас є діти?"));
 
         return questions;
     }
