@@ -11,8 +11,11 @@ import android.view.View.OnClickListener;
  */
 
 public class GeneralFragment extends Fragment {
+
+    protected Toolbar toolbar;
+
     protected void showBackButton() {
-        final Toolbar toolbar = (Toolbar) getView().findViewById(R.id.master_toolbar);
+        toolbar = (Toolbar) getView().findViewById(R.id.master_toolbar);
 
         final MainActivity activity = (MainActivity) getActivity();
         activity.setSupportActionBar(toolbar);

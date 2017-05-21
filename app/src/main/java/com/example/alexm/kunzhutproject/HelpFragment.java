@@ -8,14 +8,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class HelpFragment extends GeneralFragment {
-    private String title;
-    private String description;
+    private int title;
+    private int  description;
 
-    public void setTitle(final String title) {
+    public void setTitle(final int title) {
         this.title = title;
     }
 
-    public void setDescription(final String description) {this.description = description;}
+    public void setDescription(final int description) {this.description = description;}
 
     @Override
     public View onCreateView(LayoutInflater inflater,
@@ -32,6 +32,6 @@ public class HelpFragment extends GeneralFragment {
         final TextView titleView = (TextView) view.findViewById(R.id.titleView);
         titleView.setText(title);
         final TextView descriptionView = (TextView) view.findViewById(R.id.textDescription);
-        descriptionView.setText(description);
+        descriptionView.setText(getText(description));
     }
 }

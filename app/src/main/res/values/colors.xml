@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#033552</color>
     <color name="colorAccent">#FF4081</color>
     <color name="color_darken_button">#d45b44</color>
+    <color name="steps_title_color">#434343</color>
 </resources>

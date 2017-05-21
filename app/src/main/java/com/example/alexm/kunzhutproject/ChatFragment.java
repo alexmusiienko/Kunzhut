@@ -43,11 +43,13 @@ public class ChatFragment extends GeneralFragment {
         recyclerView = (RecyclerView) getView().findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        adapter = new ChatAdapter(recyclerView);
+        if (questions != null && questions.size() > 0) {
+            adapter = new ChatAdapter(recyclerView);
 
-        recyclerView.setAdapter(adapter);
+            recyclerView.setAdapter(adapter);
 
-        adapter.setQuestions(questions);
+            adapter.setQuestions(questions);
+        }
     }
     
         static class QuestionViewHolder extends ViewHolder {

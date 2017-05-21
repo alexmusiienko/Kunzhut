@@ -33,4 +33,28 @@ public class MainActivity extends AppCompatActivity {
     public void goToPreviousFragment() {
         getSupportFragmentManager().popBackStack();
     }
+
+    public void goBackToMenu() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        while (true) {
+            Fragment currentFragment = fragmentManager.findFragmentById(R.id.container);
+            if (currentFragment instanceof SelectionFragment) {
+                break;
+            }
+            fragmentManager.popBackStackImmediate();
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment currentFragment = fragmentManager.findFragmentById(R.id.container);
+
+        if (currentFragment instanceof ReportFragment) {
+            goBackToMenu();
+        } else {
+            super.onBackPressed();
+        }
+    }
 }
