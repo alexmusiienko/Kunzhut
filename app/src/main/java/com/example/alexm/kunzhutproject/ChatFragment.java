@@ -193,7 +193,9 @@ public class ChatFragment extends GeneralFragment {
             } else {
                 FragmentActivity activity = getActivity();
                 MainActivity mainActivity = (MainActivity) activity;
-                mainActivity.showFragment(new ReportFragment(), true);
+                ReportFragment fragment = new ReportFragment();
+                fragment.setAnswers(displayedQuestions);
+                mainActivity.showFragment(fragment, true);
 
             }
         }

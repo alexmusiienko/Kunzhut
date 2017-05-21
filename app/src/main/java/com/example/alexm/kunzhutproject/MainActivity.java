@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    private VisaType selectedVisaType;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,5 +58,13 @@ public class MainActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    public VisaType getSelectedVisaType() {
+        return selectedVisaType;
+    }
+
+    public void setSelectedVisaType(VisaType selectedVisaType) {
+        this.selectedVisaType = selectedVisaType;
     }
 }

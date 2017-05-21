@@ -36,7 +36,7 @@ public class SelectionFragment extends Fragment {
 
             @Override
             public void onClick(final View v) {
-                navigateToChat(QuestionFactory.getStudentVisaQuestions());
+                navigateToChat(QuestionFactory.getStudentVisaQuestions(), VisaType.STUDENT);
             }
         });
 
@@ -44,7 +44,7 @@ public class SelectionFragment extends Fragment {
 
             @Override
             public void onClick(final View v) {
-                navigateToChat(QuestionFactory.getWorkingVisaQuestions());
+                navigateToChat(QuestionFactory.getWorkingVisaQuestions(), VisaType.WORKING);
             }
         });
 
@@ -52,7 +52,7 @@ public class SelectionFragment extends Fragment {
 
             @Override
             public void onClick(final View v) {
-                navigateToChat(QuestionFactory.getBusinessVisaQuestions());
+                navigateToChat(QuestionFactory.getBusinessVisaQuestions(), VisaType.BUSINESS);
             }
         });
 
@@ -60,7 +60,7 @@ public class SelectionFragment extends Fragment {
 
             @Override
             public void onClick(final View v) {
-                navigateToChat(QuestionFactory.getExursionVisaQuestions());
+                navigateToChat(QuestionFactory.getExursionVisaQuestions(), VisaType.EXCURSION);
             }
         });
 
@@ -68,7 +68,7 @@ public class SelectionFragment extends Fragment {
 
             @Override
             public void onClick(final View v) {
-                navigateToChat(QuestionFactory.getShoppingVisaQuestions());
+                navigateToChat(QuestionFactory.getShoppingVisaQuestions(), VisaType.SHOPPING);
             }
         });
         help_button.setOnClickListener(new View.OnClickListener() {
@@ -86,9 +86,10 @@ public class SelectionFragment extends Fragment {
         return view;
     }
 
-    private void navigateToChat(final List<Question> questions) {
+    private void navigateToChat(final List<Question> questions, VisaType visaType) {
         FragmentActivity activity = getActivity();
         MainActivity mainActivity = (MainActivity) activity;
+        mainActivity.setSelectedVisaType(visaType);
 
         final ChatFragment fragment = new ChatFragment();
         fragment.setQuestions(questions);

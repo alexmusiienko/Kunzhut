@@ -6,15 +6,6 @@ import java.util.List;
 public class QuestionFactory {
 
     public static List<Question> getStudentVisaQuestions() {
-
-//        MULTIPLE OPTION QUESTION
-//        List<String> options = new ArrayList<>();
-//        options.add("1");
-//        options.add("2");
-//        options.add("3");
-//        questions.add(new MultipleOptionQuestion("1, 2, 3?", options));
-//        return guestions;
-
         final List<Question> questions = new ArrayList<>();
 
         questions.add(new BooleanQuestion("Вам є повних 18 р.?"));

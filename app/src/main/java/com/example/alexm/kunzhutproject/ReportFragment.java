@@ -19,7 +19,7 @@ public class ReportFragment extends GeneralFragment {
     private TextView titleOfAnswer;
     private List<Question> answers;
 
-    public void setAnswers(final List<Question> questions) {
+    public void setAnswers(final List<Question> answers) {
         this.answers = answers;
     }
 
@@ -36,19 +36,13 @@ public class ReportFragment extends GeneralFragment {
 
         showBackButton();
 
-        ArrayList<String> steps = new ArrayList();
-
-        steps.add("«Импортонезависимую технологическую платформу для разработки распределенных информационно-вычислительных систем на основе свободного" +
-                " программного обеспечения» разработали ученые лаборатории информационных " +
-                "технологий Всероссийского НИИ овцеводства");
-        steps.add("«На сегодняшний день существуют российские программные " +
-                "продукты, но почти все они работают под управлением операционной системы Windows," +
-                " либо используют программные библиотеки и компоненты иностранных " +
-                "компаний, а значит в любом случае импортозависимы");
         final RecyclerView recyclerView = (RecyclerView) getView().findViewById(R.id.recyclerView1);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         ReportAdapter adapter = new ReportAdapter();
-        adapter.setSteps(steps);
+
+        MainActivity activity = (MainActivity) getActivity();
+        adapter.setSteps(ReportBuilder.createStepsFromAnswers(answers, activity.getSelectedVisaType()));
+
         recyclerView.setAdapter(adapter);
     }
 

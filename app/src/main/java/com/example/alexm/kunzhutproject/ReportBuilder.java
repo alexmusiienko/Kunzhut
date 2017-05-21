@@ -5,13 +5,31 @@ import java.util.List;
 
 public class ReportBuilder {
 
-    public static List<String> createStepsFromAnswers(final List<Question> questions) {
+    public static List<String> createStepsFromAnswers(final List<Question> questions,
+                                                      VisaType visaType) {
 
+        switch (visaType) {
+            case BUSINESS:
+                return createStepsForBusinessVisa(questions);
+            case STUDENT:
+                return createStepsForBusinessVisa(questions);
+            case WORKING:
+                return createStepsForBusinessVisa(questions);
+            case EXCURSION:
+                return createStepsForBusinessVisa(questions);
+            case SHOPPING:
+                return createStepsForBusinessVisa(questions);
+            default:
+                return null;
+        }
+    }
+
+    private static List<String> createStepsForBusinessVisa(final List<Question> questions) {
         List<String> steps = new ArrayList<>();
 
         BooleanQuestion ageQuestion = (BooleanQuestion) questions.get(0);
         if (ageQuestion.isAnswerPositive()) {
-        steps.add("---");
+            steps.add("---");
         } else {
             steps.add("Подбайте про нотаріально затверджений дозвіл від батьків про перетин кордону.");
         }
@@ -59,6 +77,5 @@ public class ReportBuilder {
         }
 
         return steps;
-
     }
 }
