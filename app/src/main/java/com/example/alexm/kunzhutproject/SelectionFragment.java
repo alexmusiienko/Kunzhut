@@ -76,7 +76,7 @@ public class SelectionFragment extends Fragment {
             @Override
             public void onClick(final View v) {
                 hp_but.setTitle(R.string.help_title);
-                hp_but.setDescription(R.string.app_name);
+                hp_but.setDescription(R.string.help_description);
 
                 FragmentActivity activity = getActivity();
                 MainActivity mainActivity = (MainActivity) activity;
