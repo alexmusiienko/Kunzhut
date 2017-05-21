@@ -2,7 +2,6 @@ package com.example.alexm.kunzhutproject;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -51,8 +50,8 @@ public class ChatFragment extends GeneralFragment {
             adapter.setQuestions(questions);
         }
     }
-    
-        static class QuestionViewHolder extends ViewHolder {
+
+    private static class QuestionViewHolder extends ViewHolder {
 
         private TextView title;
 
@@ -88,37 +87,7 @@ public class ChatFragment extends GeneralFragment {
         }
     }
 
-    private static class MultipleOptionsQuestionViewHolder extends QuestionViewHolder {
-
-        private Button firstOptionButton;
-        private Button secondOptionButton;
-        private Button thirdOptionButton;
-
-        public MultipleOptionsQuestionViewHolder(final View itemView) {
-            super(itemView);
-
-            firstOptionButton = (Button) itemView.findViewById(R.id.chat_select_button1);
-            secondOptionButton = (Button) itemView.findViewById(R.id.chat_select_button2);
-            thirdOptionButton = (Button) itemView.findViewById(R.id.chat_select_button3);
-        }
-
-        public void setFirstOptionButtonListener(final OnClickListener onClickListener) {
-            firstOptionButton.setOnClickListener(onClickListener);
-        }
-
-        public void setSecondOptionButtonListener(final OnClickListener onClickListener) {
-            secondOptionButton.setOnClickListener(onClickListener);
-        }
-
-        public void setThirdOptionButtonListener(final OnClickListener onClickListener) {
-            thirdOptionButton.setOnClickListener(onClickListener);
-        }
-    }
-
-    private class ChatAdapter extends RecyclerView.Adapter<QuestionViewHolder> {
-
-        private static final int BOOLEAN_QUESTION_VIEW = 100;
-        private static final int MULTIPLE_OPTIONS_QUESTION_VIEW = 200;
+    private class ChatAdapter extends RecyclerView.Adapter<BooleanQuestionViewHolder> {
 
         private RecyclerView recyclerView;
 
@@ -139,54 +108,43 @@ public class ChatFragment extends GeneralFragment {
         }
 
         @Override
-        public int getItemViewType(final int position) {
-            final Question question = displayedQuestions.get(position);
+        public BooleanQuestionViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
+            final View view = LayoutInflater.from(parent.getContext())
+                    .inflate(R.layout.yes_no_bubbles, parent, false);
 
-            if (question instanceof BooleanQuestion) {
-                return BOOLEAN_QUESTION_VIEW;
-            }
-
-            return MULTIPLE_OPTIONS_QUESTION_VIEW;
+            return new BooleanQuestionViewHolder(view);
         }
 
         @Override
-        public QuestionViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-            int layoutId;
-
-            if (viewType == BOOLEAN_QUESTION_VIEW) {
-                layoutId = R.layout.yes_no_bubbles;
-            } else {
-                layoutId = R.layout.select_mes_bot;
-            }
-
-            final View view = LayoutInflater.from(parent.getContext()).inflate(layoutId, parent, false);
-
-            if (viewType == BOOLEAN_QUESTION_VIEW) {
-                return new BooleanQuestionViewHolder(view);
-            } else {
-                return new MultipleOptionsQuestionViewHolder(view);
-            }
-        }
-
-        @Override
-        public void onBindViewHolder(final QuestionViewHolder holder, final int position) {
+        public void onBindViewHolder(final BooleanQuestionViewHolder holder, final int position) {
             final Question question = displayedQuestions.get(position);
 
-            if (question instanceof BooleanQuestion) {
-                setupBooleanHolder((BooleanQuestionViewHolder) holder, question);
-            } else {
-                setupMultipleOptionsHolder((MultipleOptionsQuestionViewHolder) holder, question);
-            }
+            setupBooleanHolder((BooleanQuestionViewHolder) holder, (BooleanQuestion) question);
         }
 
-        private void setupBooleanHolder(final BooleanQuestionViewHolder holder, final Question question) {
-            final BooleanQuestion booleanQuestion = (BooleanQuestion) question;
-
+        private void setupBooleanHolder(final BooleanQuestionViewHolder holder,
+                                        final BooleanQuestion question) {
             holder.setTitle(question.getQuestionTitle());
+
+            if (question.isAnswered()) {
+                setupAnsweredQuestionHolder(holder, question);
+            } else {
+                setupUnansweredQuestionHolder(holder, question);
+            }
+        }
+
+        private void setupUnansweredQuestionHolder(final BooleanQuestionViewHolder holder,
+                                                   final BooleanQuestion question) {
+            holder.positiveButton.setEnabled(true);
+            holder.negativeButton.setEnabled(true);
+            holder.positiveButton.setBackgroundResource(R.color.color_default_button);
+            holder.negativeButton.setBackgroundResource(R.color.color_default_button);
+
             holder.setPositiveListeners(new OnClickListener() {
                 @Override
                 public void onClick(final View view) {
-                    booleanQuestion.setAnswer(true);
+                    question.setAnswered(true);
+                    question.setAnswer(true);
                     view.setEnabled(false);
                     view.setBackgroundResource(R.color.color_darken_button);
                     holder.negativeButton.setEnabled(false);
@@ -197,7 +155,8 @@ public class ChatFragment extends GeneralFragment {
             holder.setNegativeListeners(new OnClickListener() {
                 @Override
                 public void onClick(final View view) {
-                    booleanQuestion.setAnswer(false);
+                    question.setAnswered(true);
+                    question.setAnswer(false);
                     view.setEnabled(false);
                     view.setBackgroundResource(R.color.color_darken_button);
                     holder.positiveButton.setEnabled(false);
@@ -206,38 +165,18 @@ public class ChatFragment extends GeneralFragment {
             });
         }
 
-        private void setupMultipleOptionsHolder(final MultipleOptionsQuestionViewHolder holder,
-                                                final Question question) {
-            final MultipleOptionQuestion multipleOptionQuestion = (MultipleOptionQuestion) question;
+        private void setupAnsweredQuestionHolder(final BooleanQuestionViewHolder holder,
+                                                 final BooleanQuestion question) {
+            holder.positiveButton.setEnabled(false);
+            holder.negativeButton.setEnabled(false);
 
-            holder.setTitle(question.getQuestionTitle());
-            holder.firstOptionButton.setText(multipleOptionQuestion.getAnswerOptions().get(0));
-            holder.secondOptionButton.setText(multipleOptionQuestion.getAnswerOptions().get(1));
-            holder.thirdOptionButton.setText(multipleOptionQuestion.getAnswerOptions().get(2));
-
-            holder.setFirstOptionButtonListener(new OnClickListener() {
-                @Override
-                public void onClick(final View view) {
-                    multipleOptionQuestion.setAnswerIndex(0);
-                    showNextQuestion();
-                }
-            });
-
-            holder.setSecondOptionButtonListener(new OnClickListener() {
-                @Override
-                public void onClick(final View view) {
-                    multipleOptionQuestion.setAnswerIndex(1);
-                    showNextQuestion();
-                }
-            });
-
-            holder.setThirdOptionButtonListener(new OnClickListener() {
-                @Override
-                public void onClick(final View view) {
-                    multipleOptionQuestion.setAnswerIndex(2);
-                    showNextQuestion();
-                }
-            });
+            if (question.isAnswerPositive()) {
+                holder.positiveButton.setBackgroundResource(R.color.color_darken_button);
+                holder.negativeButton.setBackgroundResource(R.color.color_default_button);
+            } else {
+                holder.positiveButton.setBackgroundResource(R.color.color_default_button);
+                holder.negativeButton.setBackgroundResource(R.color.color_darken_button);
+            }
         }
 
         private void showNextQuestion() {

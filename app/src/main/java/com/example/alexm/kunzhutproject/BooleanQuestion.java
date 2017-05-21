@@ -8,7 +8,7 @@ public class BooleanQuestion extends Question{
         this.answer = answer;
     }
     
-    public boolean getAnswer() {
+    public boolean isAnswerPositive() {
         return answer;
     }
 

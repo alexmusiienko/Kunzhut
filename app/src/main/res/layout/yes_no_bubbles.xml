@@ -46,7 +46,7 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                android:background="#FF7E67"
+                android:background="@color/color_default_button"
                 android:text="Так"
                 android:textColor="@android:color/white" />
 
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="1"
-                android:background="#FF7E67"
+                android:background="@color/color_default_button"
                 android:text="Ні"
                 android:textColor="@android:color/white" />
 
